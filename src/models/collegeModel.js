@@ -11,7 +11,8 @@ const collegeSchema= new mongoose.Schema({
   fullName:{
     type:String, //example-`Indian Institute of Technology, Hyderabad`
     required: 'full name is mandatory',
-    trim:true
+    trim:true,
+    Unique: true
   },
   logoLink:{
     type:String,
