@@ -1,5 +1,6 @@
 const express = require('express');
 var bodyParser = require('body-parser');
+var multer = require('multer');           //multer allows to added file,text file, img etc with json which is comming from the user side in request.
 
 const route = require('./routes/route.js');
 
@@ -7,6 +8,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(multer().any());                                 //by this multer().any()  we can use multer in our project
 
 const midglobal=function(req,res,next){
 console.log(`${new Date().getFullYear()+"-"+(new Date().getMonth()+1) +"-"+new Date().getDay()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds()} ${req.ip} ${req.originalUrl}`);
