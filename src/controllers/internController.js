@@ -9,6 +9,7 @@ const validDetail = function (value) {
 
 const createIntern = async function (req, res) {
     try {
+        res.setHeader('Access-Control-Allow-Origin','*')   //now with this we can use multer for getting file from user. access-control-allow-origin  => allow to connect with diff request.
         const { name, email, mobile, collegeName } = req.body //object destructuring => becz it will be easy to use for checking perpuse now we can use "name" in place of req.body.name
         if (!validDetail(name)) {
             return res.status(400).send({ status: false, message: 'name is required' })
