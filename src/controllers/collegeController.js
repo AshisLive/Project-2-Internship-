@@ -14,6 +14,7 @@ const isValidRequestBody = function(requestBody) {
 
 const createCollege = async function (req, res) {
     try {
+        res.setHeader('Access-Control-Allow-Origin','*')
         const requestBody = req.body;
      // Extract params
      const {name, fullName, logoLink} = requestBody; // Object destructuring requestBody=req.body for name we had to write req.body.name instead we are writing this
